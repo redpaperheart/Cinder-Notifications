@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<cinder>
+<block
+	name="Notification Manager"
+	id="com.redpaperheart.notifications"
+	author="Red Paper Heart"
+    version="0.1"
+	>
+    <includePath>src</includePath>
+    <header>src/rph/NotificationManager.h</header>
+    <source>src/rph/NotificationManager.cpp</source>
+    <header>src/rph/Notification.h</header>
+    <source>src/rph/Notification.cpp</source>
+</block>
+</cinder>
