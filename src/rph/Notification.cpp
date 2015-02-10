@@ -8,14 +8,14 @@ namespace rph {
         
         mTextBox.setColor(ci::ColorA(1,1,1,1));
         //mTextBox.setBackgroundColor(ci::ColorA(1,0,0,1));
-        mTextBox.setSize( ci::Vec2i( mWidth-20, ci::TextBox::GROW ) );
+        mTextBox.setSize( ci::ivec2( mWidth-20, ci::TextBox::GROW ) );
         mTextBox.setText(message);
         
-        ci::Vec2i sz = mTextBox.measure();
+        ci::ivec2 sz = mTextBox.measure();
         mHeight = sz.y + 20;
         mY = -sz.y-20-10;
         
-        mTextBoxTexture = ci::gl::Texture( mTextBox.render() );
+        mTextBoxTexture = ci::gl::Texture::create( mTextBox.render() );
         
     };
     

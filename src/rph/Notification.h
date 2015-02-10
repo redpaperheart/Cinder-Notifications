@@ -48,7 +48,7 @@ namespace rph {
         bool mIsDead;
         
         ci::TextBox mTextBox;
-        ci::gl::Texture mTextBoxTexture;
+        ci::gl::TextureRef mTextBoxTexture;
         
     };
 }
