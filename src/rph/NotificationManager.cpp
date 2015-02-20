@@ -12,8 +12,8 @@ namespace rph {
     }
 //    void NotificationManager::setup(){}
     
-    Notification * NotificationManager::add(std::string message, float timeout){
-        Notification *n = new Notification( message );
+    Notification * NotificationManager::add(std::string message, float timeout, ci::ColorA bgColor, ci::ColorA fontColor){
+        Notification *n = new Notification( message, bgColor, fontColor );
         mNotifications.push_back(n);
         
         n->animateIn();

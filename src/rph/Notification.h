@@ -13,7 +13,7 @@ namespace rph {
     class Notification{
       public:
         //Notification(){};
-        Notification( std::string msg);
+        Notification( std::string msg, ci::ColorA bg, ci::ColorA font);
         ~Notification(){};
         
         void draw();
@@ -44,6 +44,9 @@ namespace rph {
         float mSpace = 10.0f;
         
         ci::Anim<float> mAlpha = 0.0f;
+        
+        ci::ColorA mBgColor;
+        ci::ColorA mFontColor;
         
         bool mIsDead;
         

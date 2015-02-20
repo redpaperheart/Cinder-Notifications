@@ -2,12 +2,15 @@
  
 namespace rph {
     
-    Notification::Notification( std::string msg){
+    Notification::Notification( std::string msg, ci::ColorA bg, ci::ColorA font){
         
         message = msg;
         
-        mTextBox.setColor(ci::ColorA(1,1,1,1));
-        //mTextBox.setBackgroundColor(ci::ColorA(1,0,0,1));
+        mBgColor = bg;
+        mFontColor = font;
+        
+        mTextBox.setColor(font);
+        //mTextBox.setBackgroundColor(bg);
         mTextBox.setSize( ci::ivec2( mWidth-20, ci::TextBox::GROW ) );
         mTextBox.setText(message);
         
@@ -40,10 +43,10 @@ namespace rph {
     //void Notification::setup(){}
     void Notification::draw(){
         ci::gl::pushMatrices();
-        ci::gl::color(ci::ColorA(0,0,0,mAlpha));
+        ci::gl::color( mBgColor * ci::ColorA(1.0f,1.0f,1.0f,mAlpha));
         ci::gl::drawSolidRect( ci::Rectf(mX,mY,mX+mWidth,mY+mHeight) );
-        ci::gl::color(ci::ColorA(1,1,1,mAlpha));
         
+        ci::gl::color(ci::ColorA(1.0f,1.0f,1.0f,mAlpha));
         ci::gl::translate(mX+10,mY+10);
         ci::gl::draw( mTextBoxTexture );
         ci::gl::popMatrices();

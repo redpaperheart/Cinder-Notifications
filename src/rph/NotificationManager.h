@@ -9,7 +9,7 @@ namespace rph {
       public:
         static NotificationManager* getInstance();
     
-        Notification * add(std::string message, float timeout);
+        Notification * add(std::string message, float timeout, ci::ColorA bgColor = ci::ColorA(1.0f,1.0f,1.0f,1.0f), ci::ColorA fontColor = ci::ColorA(0.0f,0.0f,0.0f,1.0f) );
         
         void draw();
         
