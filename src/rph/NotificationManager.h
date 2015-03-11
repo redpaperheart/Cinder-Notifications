@@ -13,6 +13,8 @@ namespace rph {
         
         void draw();
         
+        void setWindowSize(ci::ivec2 size){ mWindowSize = size;}
+        
       protected:
         NotificationManager(){};
         NotificationManager(NotificationManager const&){};
@@ -22,6 +24,7 @@ namespace rph {
         void deleteNotification( Notification *n );
         
         void updateYPos();
+        ci::ivec2 mWindowSize;
         
         std::list<rph::Notification *> mNotifications;
         

@@ -7,6 +7,7 @@ namespace rph {
         if (!m_pInstance){ // Only allow one instance of class to be generated.
             m_pInstance = new NotificationManager;
 //            m_pInstance->setup();
+            m_pInstance->mWindowSize = ci::app::getWindowSize();
         }
         return m_pInstance;
     }
@@ -46,7 +47,8 @@ namespace rph {
         if(mNotifications.size()<1)return;
         
         ci::gl::pushMatrices();
-        ci::gl::translate(ci::app::getWindowWidth()-310, 10);
+        //ci::gl::translate(ci::app::getWindowWidth()-310, 10);
+        ci::gl::translate(mWindowSize.x-310, 10);
         for (auto notification : mNotifications){
             notification->draw();
         }
