@@ -1,8 +1,11 @@
 #pragma once
 
+#include "cinder/app/App.h"
+#include "cinder/gl/gl.h"
+#include "cinder/gl/Texture.h"
 #include "cinder/Timeline.h"
 #include "cinder/Text.h"
-#include "cinder/gl/Texture.h"
+
 
 // boost error hack: http://forum.libcinder.org/topic/notificationcenter-in-cinder
 #define BOOST_INTEL_STDCXX0X
