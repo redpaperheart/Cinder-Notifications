@@ -1,5 +1,7 @@
 #pragma once
 
+#include "cinder/app/App.h"
+#include "cinder/gl/gl.h"
 #include "cinder/timeline.h"
 #include "Notification.h"
 
