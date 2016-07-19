@@ -42,14 +42,16 @@ namespace rph {
     
     //void Notification::setup(){}
     void Notification::draw(){
-        ci::gl::pushMatrices();
-        ci::gl::color( mBgColor * ci::ColorA(1.0f,1.0f,1.0f,mAlpha));
-        ci::gl::drawSolidRect( ci::Rectf(mX,mY,mX+mWidth,mY+mHeight) );
-        
-        ci::gl::color(ci::ColorA(1.0f,1.0f,1.0f,mAlpha));
+        ci::gl::ScopedMatrices mat;
+        {
+            ci::gl::ScopedColor c ( mBgColor * ci::ColorA(1.0f,1.0f,1.0f,mAlpha));
+            ci::gl::drawSolidRect( ci::Rectf(mX,mY,mX+mWidth,mY+mHeight) );
+        }
         ci::gl::translate(mX+10,mY+10);
-        ci::gl::draw( mTextBoxTexture );
-        ci::gl::popMatrices();
+        {
+            ci::gl::ScopedColor c (ci::ColorA(1.0f,1.0f,1.0f,mAlpha));
+            ci::gl::draw( mTextBoxTexture );
+        }
     }
 
 }
