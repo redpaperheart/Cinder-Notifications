@@ -28,6 +28,7 @@ namespace rph {
     
     void NotificationManager::deleteNotification( Notification *n ){
         //possibly remove the connected signal here?
+        delete n;
         mNotifications.remove(n);
         updateYPos();
     }
