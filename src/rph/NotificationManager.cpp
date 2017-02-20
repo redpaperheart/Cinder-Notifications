@@ -6,12 +6,10 @@ namespace rph {
     NotificationManager* NotificationManager::getInstance(){
         if (!m_pInstance){ // Only allow one instance of class to be generated.
             m_pInstance = new NotificationManager;
-//            m_pInstance->setup();
             m_pInstance->mWindowSize = ci::app::getWindowSize();
         }
         return m_pInstance;
     }
-//    void NotificationManager::setup(){}
     
     Notification * NotificationManager::add(std::string message, float timeout, ci::ColorA bgColor, ci::ColorA fontColor){
         Notification *n = new Notification( message, bgColor, fontColor );
@@ -21,16 +19,20 @@ namespace rph {
         
         updateYPos();
         
-        ci::app::timeline().apply( &n->time, timeout, timeout ).finishFn(boost::bind( &Notification::animateOut, n));
-        n->signal_die.connect(boost::bind( &NotificationManager::deleteNotification, this, n));
+        ci::app::timeline().apply( &n->time, timeout, timeout ).finishFn(std::bind( &Notification::animateOut, n));
+        //n->signal_die.connect(std::bind( &NotificationManager::deleteNotification, this, n));
+        n->signal_die.connect(std::bind( &NotificationManager::deleteNotification, this, std::placeholders::_1));
+//        n->signal_die.connect([&](Notification * n){ deleteNotification(n);} );
         return n;
     }
     
     void NotificationManager::deleteNotification( Notification *n ){
         //possibly remove the connected signal here?
-        delete n;
+        //ci::app::console() << mNotifications.size() << "- about to remove :" << n->message << std::endl;
         mNotifications.remove(n);
+        //ci::app::console() << mNotifications.size() << "- removed: " << n->message << std::endl;
         updateYPos();
+        //delete n; //currently throws an error.
     }
     
     

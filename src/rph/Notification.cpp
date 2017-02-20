@@ -32,12 +32,12 @@ namespace rph {
         ci::app::timeline().apply(&mAlpha, 1.0f, 0.3f);
     };
     void Notification::animateOut(){
-        ci::app::timeline().apply( &mAlpha, 0.0f, 0.3f ).finishFn( boost::bind( &Notification::die, this) );
+        ci::app::timeline().apply( &mAlpha, 0.0f, 0.3f ).finishFn( std::bind( &Notification::die, this) );
     };
     
     void Notification::die(){
         mIsDead = true;
-        signal_die();
+        signal_die.emit( this );
     }
     
     //void Notification::setup(){}

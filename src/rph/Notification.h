@@ -8,8 +8,8 @@
 
 
 // boost error hack: http://forum.libcinder.org/topic/notificationcenter-in-cinder
-#define BOOST_INTEL_STDCXX0X
-#include <boost/signals2.hpp>
+// #define BOOST_INTEL_STDCXX0X
+// #include <boost/signals2.hpp>
 
 namespace rph {
 
@@ -35,7 +35,8 @@ namespace rph {
         float getWidth(){ return mWidth(); }
         float getHeight(){ return mHeight(); }
         
-        boost::signals2::signal<void ()> signal_die;
+        ci::signals::Signal<void (Notification *)> signal_die;
+        //std::signal<void ()> signal_die;
         
         bool isDead(){ return mIsDead; }
         
