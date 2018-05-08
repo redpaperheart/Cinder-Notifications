@@ -1,7 +1,6 @@
 # Cinder-Notifications
 
-
-An easy way to add Growl-like notifications to a project.
+A Cinder block to add simple growl-like notifications to your project.
 
 
 ## Work in Progress / Todo:

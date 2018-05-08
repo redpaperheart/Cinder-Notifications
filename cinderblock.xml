@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <cinder>
 <block
-	name="Notification Manager"
+	name="Cinder-Notifications"
 	id="com.redpaperheart.notifications"
 	author="Red Paper Heart"
-    version="0.1"
+	summary="A Cinder block to add simple growl-like notifications to your project."
+  version="0.1"
+	url="https://github.com/redpaperheart/Cinder-Notifications"
+	git="https://github.com/redpaperheart/Cinder-Notifications.git"
 	>
     <includePath>src</includePath>
     <header>src/rph/NotificationManager.h</header>
